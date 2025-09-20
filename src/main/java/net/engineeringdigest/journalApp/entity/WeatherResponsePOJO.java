@@ -1,4 +1,4 @@
-package net.engineeringdigest.journalApp.weatherResponse;
+package net.engineeringdigest.journalApp.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;

@@ -2,6 +2,7 @@ package net.engineeringdigest.journalApp.entity;
 
 
 //import com.sun.istack.internal.NotNull;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
@@ -17,6 +18,7 @@ import java.util.List;
 @Document(collection = "users")
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class Users {
 
     @Id
@@ -27,6 +29,8 @@ public class Users {
     private String userName;
     @NonNull
     private String passWord;
+    private String email;
+    private boolean sentimentAnalysis;
 
     @DBRef
     private List<JournalPOJO> journalPOJOList=new ArrayList<>();

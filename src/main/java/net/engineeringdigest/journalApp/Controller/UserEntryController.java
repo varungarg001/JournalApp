@@ -1,19 +1,15 @@
 package net.engineeringdigest.journalApp.Controller;
 
 import net.engineeringdigest.journalApp.entity.Users;
-import net.engineeringdigest.journalApp.entity.QuoteResponsePOJO;
-import net.engineeringdigest.journalApp.service.QuoteService;
 import net.engineeringdigest.journalApp.service.UserEntryService;
 import net.engineeringdigest.journalApp.service.WeatherService;
-import net.engineeringdigest.journalApp.entity.WeatherResponsePOJO;
+import net.engineeringdigest.journalApp.weatherResponse.WeatherResponsePOJO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Optional;
 
 
 @RestController
@@ -24,9 +20,6 @@ public class UserEntryController {
 
     @Autowired
     private WeatherService weatherService;
-
-    @Autowired
-    private QuoteService quoteService;
 
 
     @PutMapping
@@ -54,11 +47,8 @@ public class UserEntryController {
     public ResponseEntity<?> greetingUser(){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         WeatherResponsePOJO response = weatherService.getWeather("mumbai");
-
-        Optional<QuoteResponsePOJO> quoteresponse = quoteService.getQuote().stream().findFirst();
-
         if(response!=null){
-            return new ResponseEntity<>("Hi "+authentication.getName()+", weather feels like "+response.getCurrent().getFeelslike()+"\n and a quote for you is: "+quoteresponse.get().getQuote(),HttpStatus.OK);
+            return new ResponseEntity<>("Hi "+authentication.getName()+", weather feels like "+response.getCurrent().getFeelslike(),HttpStatus.OK);
         }
         return new ResponseEntity<>("Hi "+authentication.getName()+" ",HttpStatus.OK);
 

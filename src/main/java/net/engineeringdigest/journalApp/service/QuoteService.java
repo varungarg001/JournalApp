@@ -1,5 +1,6 @@
 package net.engineeringdigest.journalApp.service;
 
+import net.engineeringdigest.journalApp.entity.QuoteResponsePOJO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;

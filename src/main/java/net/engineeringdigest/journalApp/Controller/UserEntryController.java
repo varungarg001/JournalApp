@@ -3,7 +3,7 @@ package net.engineeringdigest.journalApp.Controller;
 import net.engineeringdigest.journalApp.entity.Users;
 import net.engineeringdigest.journalApp.service.UserEntryService;
 import net.engineeringdigest.journalApp.service.WeatherService;
-import net.engineeringdigest.journalApp.weatherResponse.WeatherResponsePOJO;
+import net.engineeringdigest.journalApp.entity.WeatherResponsePOJO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

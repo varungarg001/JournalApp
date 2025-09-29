@@ -42,6 +42,7 @@ public class SendingMailScheduler {
             String join = String.join(" ", filtered);
             String sentiment = sentimentService.getSentiment(join);
             emailService.mailSender(user.getEmail(), "your sentiments for last 7 days", sentiment);
+            System.out.println("hello");
 
         }
 
